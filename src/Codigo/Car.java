@@ -7,12 +7,16 @@ class Car {
 
     private int id;
     private String license;
-    private Account Driver;
+    private Driver Driver;
     private int Passenger;
+    String Brand;
+    String Model;
 
-    public Car(String licence, Account Driver) {
+    public Car(String licence, Driver Driver, String Brand, String Model) {
         this.license = licence;
         this.Driver = Driver;
+        this.Brand = Brand;
+        this.Model = Model;
     }
 
     void printDataCar(){
@@ -67,14 +71,14 @@ class Car {
     /**
      * @return the driver
      */
-    public Account getDriver() {
+    public Driver getDriver() {
         return Driver;
     }
 
     /**
      * @param driver the driver to set
      */
-    public void setDriver(Account driver) {
+    public void setDriver(Driver driver) {
         Driver = driver;
     }
 

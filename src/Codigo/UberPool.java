@@ -4,13 +4,10 @@ package Codigo;
  * UberX
  */
 
-class UberPool extends Car{
-    String Brand;
-    String Model;
+public class UberPool extends Car{
 
-    public UberPool(String license, Account Driver , String Brand, String Model ) {
-        super(license, Driver);
-        this.Brand = Brand;
-        this.Model = Model;
+    public UberPool(String license, Driver Driver, String Brand, String Model) {
+
+        super(license, Driver,Brand,Model);
     }
 }

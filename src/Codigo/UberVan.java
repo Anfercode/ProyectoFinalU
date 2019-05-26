@@ -1,19 +1,17 @@
 package Codigo;
 
 import java.util.Map;
-import java.util.ArrayList;
 
 /**
  * UberVan
  */
 public class UberVan extends Car{
 
-    Map<String ,Map<String , Integer>> TypeCarAccepted;
-    ArrayList<String> SeatsMaterial;
     private int Passenger;
 
-    public UberVan(String license, Account Driver) {
-        super(license, Driver);     
+    public UberVan(String license, Driver Driver, String Brand, String Model) {
+
+        super(license, Driver,Brand,Model);    
     }    
 
     @Override

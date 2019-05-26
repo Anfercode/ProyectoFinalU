@@ -3,15 +3,11 @@ package Codigo;
 /**
  * UberX
  */
+public class UberX extends Car {
 
-class UberX extends Car{
-    String Brand;
-    String Model;
+    public UberX(String license, Driver Driver, String Brand, String Model) {
 
-    public UberX(String license, Account Driver , String Brand, String Model ) {
-        super(license, Driver);
-        this.Brand = Brand;
-        this.Model = Model;
+        super(license, Driver, Brand, Model);
     }
 
     @Override
