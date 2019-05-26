@@ -63,7 +63,7 @@ public class Print_Data_Accounts extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PRINT DATA USERS");
+        jLabel1.setText("PRINT DATA OF");
 
         jTable1.setBackground(new java.awt.Color(0, 0, 0));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
