@@ -9,21 +9,14 @@ class Car {
     private String license;
     private Driver Driver;
     private int Passenger;
-    String Brand;
-    String Model;
+    private String Brand;
+    private String Model;
 
     public Car(String licence, Driver Driver, String Brand, String Model) {
         this.license = licence;
         this.Driver = Driver;
         this.Brand = Brand;
         this.Model = Model;
-    }
-
-    void printDataCar(){
-        if (Passenger != 0) {
-            System.out.println("License: " + license + " Name Driver: " + Driver.Name + " Passengers: " + Passenger);    
-        }
-        
     }
 
     public int getPassenger() {
@@ -71,8 +64,8 @@ class Car {
     /**
      * @return the driver
      */
-    public Driver getDriver() {
-        return Driver;
+    public String getDriver() {
+        return Driver.Name + "," + Driver.Document  + "," + Driver.getPassword() + "," + Driver.getEmail();
     }
 
     /**
@@ -80,6 +73,22 @@ class Car {
      */
     public void setDriver(Driver driver) {
         Driver = driver;
+    }
+    
+    public String getBrand() {
+        return Brand;
+    }
+
+    public void setBrand(String Brand) {
+        this.Brand = Brand;
+    }
+    
+    public String getModel() {
+        return Brand;
+    }
+
+    public void setModel(String Model) {
+        this.Model = Model;
     }
 
     

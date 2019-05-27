@@ -6,7 +6,17 @@
 package InterfazGrafica;
 
 import Codigo.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -291,9 +301,9 @@ public class Llenado_Datos_Conductor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -323,8 +333,11 @@ public class Llenado_Datos_Conductor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GuardadoInfo Driver = new GuardadoInfo();
+
         Interfaz_Uber Interfaz = new Interfaz_Uber();
+        String cadena;
+        String ConsultaCadena = "";
+        String Ruta = "src/InterfazGrafica/GuardadoDatosDriver.txt";
 
         this.setVisible(false);
         Interfaz.setVisible(true);
@@ -334,14 +347,84 @@ public class Llenado_Datos_Conductor extends javax.swing.JFrame {
         grupo1.add(jRadioButton3);
         grupo1.add(jRadioButton4);
 
-        if(jRadioButton1.isSelected()==true){//UberX
-            Driver.Uberx.add(new UberX(jTextField7.getText(),new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()),jTextField8.getText(),jTextField9.getText()));
-        }else if(jRadioButton3.isSelected()==true){//UberPool
-            Driver.UberPool.add(new UberPool(jTextField7.getText(),new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()),jTextField8.getText(),jTextField9.getText()));
-        }else if(jRadioButton4.isSelected()==true){//UberBack
-            Driver.UberBlack.add(new UberBlack(jTextField7.getText(),new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()),jTextField8.getText(),jTextField9.getText()));
-        }else if(jRadioButton2.isSelected()==true){//UberVan
-            Driver.UberVan.add(new UberVan(jTextField7.getText(),new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()),jTextField8.getText(),jTextField9.getText()));
+        if (jRadioButton1.isSelected() == true) {//UberX
+
+            UberX uberx = new UberX(jTextField7.getText(), new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()), jTextField8.getText(), jTextField9.getText());
+            try {
+                File archivo = new File(Ruta);
+                BufferedWriter bw;
+                FileReader f = new FileReader(Ruta);
+                BufferedReader b = new BufferedReader(f);
+
+                while ((cadena = b.readLine()) != null) {
+                    ConsultaCadena += cadena + "\n";
+                }
+                b.close();
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write(ConsultaCadena + uberx.getLicense() + "," + uberx.getDriver() + "," + uberx.getBrand() + "," + uberx.getModel() + ",UberX");
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Llenado_Datos_Conductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else if (jRadioButton3.isSelected() == true) {//UberPool
+
+            UberPool uberPool = new UberPool(jTextField7.getText(), new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()), jTextField8.getText(), jTextField9.getText());
+            try {
+                File archivo = new File(Ruta);
+                BufferedWriter bw;
+                FileReader f = new FileReader(Ruta);
+                BufferedReader b = new BufferedReader(f);
+
+                while ((cadena = b.readLine()) != null) {
+                    ConsultaCadena += cadena + "\n";
+                }
+                b.close();
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write(ConsultaCadena + uberPool.getLicense() + "," + uberPool.getDriver() + "," + uberPool.getBrand() + "," + uberPool.getModel() + ",UberPool");
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Llenado_Datos_Conductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else if (jRadioButton4.isSelected() == true) {//UberBack
+
+            UberBlack uberBlack = new UberBlack(jTextField7.getText(), new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()), jTextField8.getText(), jTextField9.getText());
+            try {
+                File archivo = new File(Ruta);
+                BufferedWriter bw;
+                FileReader f = new FileReader(Ruta);
+                BufferedReader b = new BufferedReader(f);
+
+                while ((cadena = b.readLine()) != null) {
+                    ConsultaCadena += cadena + "\n";
+                }
+                b.close();
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write(ConsultaCadena + uberBlack.getLicense() + "," + uberBlack.getDriver() + "," + uberBlack.getBrand() + "," + uberBlack.getModel() + ",UberBlack");
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Llenado_Datos_Conductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton2.isSelected() == true) {//UberVan
+
+            UberVan uberVan = new UberVan(jTextField7.getText(), new Driver(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()), jTextField8.getText(), jTextField9.getText());
+            try {
+                File archivo = new File(Ruta);
+                BufferedWriter bw;
+                FileReader f = new FileReader(Ruta);
+                BufferedReader b = new BufferedReader(f);
+
+                while ((cadena = b.readLine()) != null) {
+                    ConsultaCadena += cadena + "\n";
+                }
+                b.close();
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write(ConsultaCadena + uberVan.getLicense() + "," + uberVan.getDriver() + "," + uberVan.getBrand() + "," + uberVan.getModel() + ",UberVan");
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Llenado_Datos_Conductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

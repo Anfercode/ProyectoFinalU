@@ -10,9 +10,4 @@ public class UberX extends Car {
         super(license, Driver, Brand, Model);
     }
 
-    @Override
-    void printDataCar() {
-        super.printDataCar();
-        System.out.println("Modelo: " + Model + " Marca: " + Brand);
-    }
 }

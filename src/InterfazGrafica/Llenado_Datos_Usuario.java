@@ -6,6 +6,14 @@
 package InterfazGrafica;
 
 import Codigo.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -176,9 +184,27 @@ public class Llenado_Datos_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GuardadoInfo User = new GuardadoInfo();
         Interfaz_Uber Interfaz = new Interfaz_Uber();
-        User.Usuario.add(new User(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText()));
+        String cadena;
+        String ConsultaCadena = "";
+        String Ruta = "src/InterfazGrafica/GuardadoDatosUsuario.txt";
+        User Usuario = new User(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText());
+        try {
+                File archivo = new File(Ruta);
+                BufferedWriter bw;
+                FileReader f = new FileReader(Ruta);
+                BufferedReader b = new BufferedReader(f);
+
+                while ((cadena = b.readLine()) != null) {
+                    ConsultaCadena += cadena + "\n";
+                }
+                b.close();
+                bw = new BufferedWriter(new FileWriter(archivo));
+                bw.write(ConsultaCadena + Usuario.getName() + "," + Usuario.getDocument()+ "," + Usuario.getEmail()+ "," + Usuario.getPassword());
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Llenado_Datos_Conductor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         this.setVisible(false);
         Interfaz.setVisible(true);        
     }//GEN-LAST:event_jButton1ActionPerformed

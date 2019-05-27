@@ -5,13 +5,17 @@
  */
 package InterfazGrafica;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author andres
  */
 public class Interfaz_Uber extends javax.swing.JFrame {
-     /**
+
+    /**
      * Creates new form Interfaz_Uber
      */
     public Interfaz_Uber() {
@@ -140,17 +144,18 @@ public class Interfaz_Uber extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+
         Register_Account AccountType = new Register_Account();
         AccountType.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Print_Data_Accounts PrintData = new Print_Data_Accounts();
-        PrintData.setVisible(true);
+        Account_Type_Show_Data AccountType = new Account_Type_Show_Data();
+        AccountType.setVisible(true);
         this.setVisible(false);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
